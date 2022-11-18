@@ -12,14 +12,18 @@ $num_clientes = $query_clientes->num_rows;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Cadastros</title>
+    <link rel="stylesheet" href="assets/css/cadastro.css">
     <link rel="stylesheet" href="assets/css/tabela.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
 </head>
 <body>
-    <h1>Lista de Cadastros</h1>
-    <h2>Estes são os cadastrados do sistema:</h2>
+    <h1 class="text-center">Lista de Cadastros</h1>
+    <h2 class="text-center">Estes são os cadastros salvos no sistema<br><br><br><a href="cadastro.php" class="btn btn-info btn-lg"><b>Realizar um novo cadastro</b></a>
+    </h2>
+    
     <div class="container">
+   
     <table class="table table-striped custab">
         <thead>
             <th>ID</th>
@@ -27,13 +31,14 @@ $num_clientes = $query_clientes->num_rows;
             <th>E-mail</th>
             <th>Telefone</th>
             <th>Nascimento</th>
-            <th>Data de Cadastro</th>
+            <th>Data</th>
+            <th>Item Emprestado</th>
             <th>Ações</th>
         </thead>
         <tbody>
             <?php if($num_clientes == 0) { ?>
                 <tr>
-                    <td colspan="7">Nenhum cliente foi cadastrado</td>
+                    <td colspan="8">Nenhum cliente foi cadastrado</td>
                 </tr>
             <?php 
             } else {
@@ -56,8 +61,9 @@ $num_clientes = $query_clientes->num_rows;
                     <td><?php echo $telefone; ?></td>
                     <td><?php echo $nascimento; ?></td>
                     <td><?php echo $data_cadastro; ?></td>
+                    <td><?php echo $cadastro['item']; ?></td>
                     <td>
-                        <a class='btn btn-info btn-xs' href="editar_cadastro.php?id=<?php echo $cadastro['id']; ?>"><span class="glyphicon glyphicon-edit"><b> EDITAR</b></span></a>
+                        <a class='btn btn-info btn-xs' href="editar_cadastro.php?id=<?php echo $cadastro['id']; ?>"><span class="glyphicon glyphicon-edit"><b>EDITAR</b></span></a>
                         <a class="btn btn-danger btn-xs" href="deletar_cadastro.php?id=<?php echo $cadastro['id']; ?>"><span class="glyphicon glyphicon-remove"><b> DELETAR</b></span></a>
                     </td>
                 </tr>
