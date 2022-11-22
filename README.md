@@ -1,5 +1,5 @@
-# PHP
-Projeto Coisas Emprestadas
+# PHP - Projeto Coisas Emprestadas
+
 Desenvolver um sistema web utilizando HTML, CSS, PHP e MySQL
 
 Projeto realizado durante a disciplina de Fundamentos de Programação Web
